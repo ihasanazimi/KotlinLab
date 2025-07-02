@@ -46,7 +46,7 @@ class WeatherData : Subject {
         }
     }
 
-    fun setMeasurements(temperature: Float, humidity: Float, pressure: Float) {
+    fun pushMeasurements(temperature: Float, humidity: Float, pressure: Float) {
         this.temperature = temperature
         this.humidity = humidity
         this.pressure = pressure

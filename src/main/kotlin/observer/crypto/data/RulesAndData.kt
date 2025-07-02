@@ -48,7 +48,7 @@ class CryptoData : Subject{
     }
 
 
-    fun updateAmounts(usdtIrt : Float , btcIrt : Float){
+    fun pushUpdateAmounts(usdtIrt : Float, btcIrt : Float){
         this.usdtIrtAmount = usdtIrt
         this.btcIrtAmount = btcIrt
         notifyCryptoObserver()
