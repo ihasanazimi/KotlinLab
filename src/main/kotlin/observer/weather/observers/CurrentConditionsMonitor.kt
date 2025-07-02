@@ -1,10 +1,10 @@
 package observer.weather.observers
 
-import observer.weather.data.DisplayElement
+import observer.weather.data.WeatherDisplayElement
 import observer.weather.data.WeatherObserver
 import observer.weather.data.WeatherData
 
-class CurrentConditionsMonitor(private val weatherData: WeatherData) : WeatherObserver, DisplayElement {
+class CurrentConditionsMonitor(private val weatherData: WeatherData) : WeatherObserver, WeatherDisplayElement {
     private var temperature: Float = 0.0f
     private var humidity: Float = 0.0f
     private var pressure: Float = 0.0f

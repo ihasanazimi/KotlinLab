@@ -6,7 +6,7 @@ interface CryptoObserver {
     fun updateAmount()
 }
 
-interface Subject {
+interface CryptoSubject {
     fun registerCryptoObserver(o : CryptoObserver)
     fun removeCryptoObserver(o : CryptoObserver)
     fun notifyCryptoObserver()
@@ -23,7 +23,7 @@ interface CryptoDisplayElement{
 
 
 
-class CryptoData : Subject{
+class CryptoData : CryptoSubject{
 
     private val observersList = arrayListOf<CryptoObserver>()
     private var usdtIrtAmount = 0f

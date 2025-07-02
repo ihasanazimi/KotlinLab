@@ -6,14 +6,14 @@ interface WeatherObserver {
 }
 
 
-interface Subject {
+interface WeatherSubject {
     fun registerWeatherObserver(o: WeatherObserver)
     fun removeWeatherObserver(o: WeatherObserver)
     fun notifyWeatherObservers()
 }
 
 
-interface DisplayElement {
+interface WeatherDisplayElement {
     fun display()
 }
 
@@ -21,7 +21,7 @@ interface DisplayElement {
 /***************************************************************************************************/
 
 
-class WeatherData : Subject {
+class WeatherData : WeatherSubject {
     private val observersList: ArrayList<WeatherObserver> = ArrayList()
     private var temperature: Float = 0.0f
     private var humidity: Float = 0.0f
