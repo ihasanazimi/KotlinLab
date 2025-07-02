@@ -1,7 +1,17 @@
+# Ignore IntelliJ IDEA project files
 .idea/
+
+# Ignore build directories
 /build/
-/.gradle/
+/*/build/
+/**/build/
+
+# Ignore Gradle files and directories
+.gradle/
 gradle/
-gradle
 gradlew
 gradlew.bat
+
+# Ignore local properties
+local.properties
+
