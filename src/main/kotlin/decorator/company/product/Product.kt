@@ -52,15 +52,17 @@ class Developer : EmployeeDecorator() {
 
 class PromotionToDeveloper(override var employee: Employee) : EmployeeDecorator() {
 
+    private val developerObject by lazy { Developer() }
+
     override fun getJobDescription(): String {
-        return employee.getJobDescription() + "\n" + Developer().getJobDescription()
+        return employee.getJobDescription() + "\n" + developerObject.getJobDescription()
     }
 
     override fun skill(): List<String> {
-        return employee.skill() + Developer().skill()
+        return employee.skill() + developerObject.skill()
     }
 
     override fun jobTitle(): String {
-        return Developer().jobTitle()
+        return developerObject.jobTitle()
     }
 }
