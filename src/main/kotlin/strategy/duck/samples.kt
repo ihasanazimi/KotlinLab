@@ -53,6 +53,6 @@ fun main() {
     model.performFly()     // I can't fly
 
     // تغییر رفتار پرواز در زمان اجرا
-    model.replaceFlyBehavior(FlyRocketPowered()) // [cite: 590]
+    model.replaceFlyBehavior(FlyRocketPowered())
     model.performFly()     // I'm flying with a rocket!
 }
