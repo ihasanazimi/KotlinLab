@@ -14,7 +14,6 @@ fun main(){
 
 
     println("\nAfter promotion -----------------------------------------------------------------------------------------------------------------------------")
-
     employee = PromotionToDeveloper(employee)
     println(employee.jobTitle() + "\nskills : ${employee.skill().size} \n" + employee.skill().joinToString("\n"))
 
