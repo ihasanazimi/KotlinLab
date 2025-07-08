@@ -43,3 +43,24 @@ class PizzaStore(private val factory: SimplePizzaFactory) { // PizzaStore یک �
         return pizza
     }
 }
+
+
+
+
+
+fun main(){
+    PizzaStore(SimplePizzaFactory()).apply {
+        this@apply.orderPizza("clam").apply{
+            prepare()
+            bake()
+            cut()
+            box()
+        }
+        this@apply.orderPizza("cheese").apply{
+            prepare()
+            bake()
+            cut()
+            box()
+        }
+    }
+}
