@@ -1,7 +1,7 @@
-package factory_pattern.abstraction
+package factory_pattern.pizza.abstraction
 
-import factory_pattern.factory.Pizza
-import factory_pattern.factory.PizzaStore
+import factory_pattern.pizza.factory.Pizza
+import factory_pattern.pizza.factory.PizzaStore
 
 // واسط‌های مواد اولیه (Abstractions)
 interface Dough { fun getDescription(): String }

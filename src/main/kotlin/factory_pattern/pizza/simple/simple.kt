@@ -1,4 +1,4 @@
-package factory_pattern.simple
+package factory_pattern.pizza.simple
 
 // واسط یا کلاس انتزاعی Pizza (همون قبلی)
 interface Pizza {
