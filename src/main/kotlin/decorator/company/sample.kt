@@ -10,11 +10,11 @@ fun main(){
 
     println("\nBefore promotion ---------------------------------------------------------------------------------------------------------------------------")
     var employee : Employee = RegularEmployee()
-    println(employee.jobTitle() + "\nskills : ${employee.skill().size} \n" + employee.skill().joinToString("\n"))
+    println(employee.jobTitle() + "\nskills : ${employee.skills().size} \n" + employee.skills().joinToString("\n"))
 
 
     println("\nAfter promotion -----------------------------------------------------------------------------------------------------------------------------")
     employee = PromotionToDeveloper(employee)
-    println(employee.jobTitle() + "\nskills : ${employee.skill().size} \n" + employee.skill().joinToString("\n"))
+    println(employee.jobTitle() + "\nskills : ${employee.skills().size} \n" + employee.skills().joinToString("\n"))
 
 }

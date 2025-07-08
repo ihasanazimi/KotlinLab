@@ -11,7 +11,7 @@ abstract class Employee {
 
     abstract fun jobTitle() : String
 
-    abstract fun skill() : List<String>
+    abstract fun skills() : List<String>
 
 }
 
@@ -28,7 +28,7 @@ abstract class EmployeeDecorator : Employee() {
         return employee.getJobDescription()
     }
 
-    override fun skill(): List<String> {
-        return employee.skill()
+    override fun skills(): List<String> {
+        return employee.skills()
     }
 }

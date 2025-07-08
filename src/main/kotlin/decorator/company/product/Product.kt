@@ -9,7 +9,7 @@ class RegularEmployee : EmployeeDecorator() {
         description = "An office employee handles administrative tasks, supports daily operations, and helps maintain smooth workflow in the organization."
     }
 
-    override fun skill(): List<String> {
+    override fun skills(): List<String> {
         return arrayListOf<String>(
             "Organizational and time management skills",
             "Proficiency in office software (e.g., Word, Excel, Outlook)",
@@ -29,7 +29,7 @@ class Developer : EmployeeDecorator() {
         description = "A developer is a professional who writes, tests, and maintains software applications to solve problems or deliver specific functionalities."
     }
 
-    override fun skill(): List<String> {
+    override fun skills(): List<String> {
         return arrayListOf<String>(
             "Design and develop Android applications",
             "Collaborate with cross-functional teams (UI/UX, backend, QA, etc.)",
@@ -58,8 +58,8 @@ class PromotionToDeveloper(override var employee: Employee) : EmployeeDecorator(
         return employee.getJobDescription() + "\n" + developerObject.getJobDescription()
     }
 
-    override fun skill(): List<String> {
-        return employee.skill() + developerObject.skill()
+    override fun skills(): List<String> {
+        return employee.skills() + developerObject.skills()
     }
 
     override fun jobTitle(): String {
