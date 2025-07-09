@@ -1,28 +1,31 @@
 package factory_pattern.shape_drawing.abstraction
 
 
-// واسط‌ها برای اشکال و رنگ‌ها (Abstractions)
+
 interface Shape { fun draw() }
 interface Color { fun applyColor() }
 
-// پیاده‌سازی‌های خاص برای اشکال
+
+
 class Circle : Shape { override fun draw() { println("Drawing a Circle") } }
 class Square : Shape { override fun draw() { println("Drawing a Square") } }
 class Sphere : Shape { override fun draw() { println("Drawing a 3D Sphere") } }
 class Cube : Shape { override fun draw() { println("Drawing a 3D Cube") } }
 
-// پیاده‌سازی‌های خاص برای رنگ‌ها
+
 class RedColor : Color { override fun applyColor() { println("Applying Red Color") } }
 class BlueColor : Color { override fun applyColor() { println("Applying Blue Color") } }
 class GreenColor : Color { override fun applyColor() { println("Applying Green Color") } }
 
-// واسط Abstract Factory برای ساخت خانواده‌ای از اشیاء (Shape و Color)
+
+
 interface AbstractFactory {
     fun createShape(type: String): Shape
     fun createColor(type: String): Color
 }
 
-// Concrete Factory برای خانواده 2D
+
+
 class TwoDFactoryImpl : AbstractFactory {
     override fun createShape(type: String): Shape {
         return when (type) {
@@ -40,7 +43,6 @@ class TwoDFactoryImpl : AbstractFactory {
     }
 }
 
-// Concrete Factory برای خانواده 3D
 class ThreeDFactoryImpl : AbstractFactory {
     override fun createShape(type: String): Shape {
         return when (type) {
@@ -58,7 +60,6 @@ class ThreeDFactoryImpl : AbstractFactory {
     }
 }
 
-// کلاسی که از Abstract Factory استفاده می‌کند
 class ClientApp(private val factory: AbstractFactory) {
     fun createAndDrawComplexObject(shapeType: String, colorType: String) {
         val shape = factory.createShape(shapeType)
@@ -69,15 +70,14 @@ class ClientApp(private val factory: AbstractFactory) {
 }
 
 fun main() {
-    // استفاده از کارخانه 2D
+
     val twoDFactory = TwoDFactoryImpl()
     val client2D = ClientApp(twoDFactory)
-    client2D.createAndDrawComplexObject("circle", "red") // خروجی: Drawing a Circle ... Applying Red Color
+    client2D.createAndDrawComplexObject("circle", "red")
 
     println("---")
 
-    // استفاده از کارخانه 3D
     val threeDFactory = ThreeDFactoryImpl()
     val client3D = ClientApp(threeDFactory)
-    client3D.createAndDrawComplexObject("sphere", "green") // خروجی: Drawing a 3D Sphere ... Applying Green Color
+    client3D.createAndDrawComplexObject("sphere", "green")
 }
