@@ -1,0 +1,2 @@
+package singleton_pattern.phone_setting.classic_pattern
+
