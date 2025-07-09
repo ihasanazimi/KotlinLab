@@ -23,7 +23,7 @@ interface AbstractFactory {
 }
 
 // Concrete Factory برای خانواده 2D
-class TwoDFactory : AbstractFactory {
+class TwoDFactoryImpl : AbstractFactory {
     override fun createShape(type: String): Shape {
         return when (type) {
             "circle" -> Circle()
@@ -41,7 +41,7 @@ class TwoDFactory : AbstractFactory {
 }
 
 // Concrete Factory برای خانواده 3D
-class ThreeDFactory : AbstractFactory {
+class ThreeDFactoryImpl : AbstractFactory {
     override fun createShape(type: String): Shape {
         return when (type) {
             "sphere" -> Sphere()
@@ -70,14 +70,14 @@ class ClientApp(private val factory: AbstractFactory) {
 
 fun main() {
     // استفاده از کارخانه 2D
-    val twoDFactory = TwoDFactory()
+    val twoDFactory = TwoDFactoryImpl()
     val client2D = ClientApp(twoDFactory)
     client2D.createAndDrawComplexObject("circle", "red") // خروجی: Drawing a Circle ... Applying Red Color
 
     println("---")
 
     // استفاده از کارخانه 3D
-    val threeDFactory = ThreeDFactory()
+    val threeDFactory = ThreeDFactoryImpl()
     val client3D = ClientApp(threeDFactory)
     client3D.createAndDrawComplexObject("sphere", "green") // خروجی: Drawing a 3D Sphere ... Applying Green Color
 }
