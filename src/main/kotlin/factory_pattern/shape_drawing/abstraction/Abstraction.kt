@@ -1,30 +1,33 @@
 package factory_pattern.shape_drawing.abstraction
 
 
+/*---------------------------------------------------------------------------------------------------------------------*/
 
 interface Shape { fun draw() }
 interface Color { fun applyColor() }
 
-
+/*---------------------------------------------------------------------------------------------------------------------*/
 
 class Circle : Shape { override fun draw() { println("Drawing a Circle") } }
 class Square : Shape { override fun draw() { println("Drawing a Square") } }
 class Sphere : Shape { override fun draw() { println("Drawing a 3D Sphere") } }
 class Cube : Shape { override fun draw() { println("Drawing a 3D Cube") } }
 
+/*---------------------------------------------------------------------------------------------------------------------*/
 
 class RedColor : Color { override fun applyColor() { println("Applying Red Color") } }
 class BlueColor : Color { override fun applyColor() { println("Applying Blue Color") } }
 class GreenColor : Color { override fun applyColor() { println("Applying Green Color") } }
 
 
-
+/*---------------------------------------------------------------------------------------------------------------------*/
 interface AbstractFactory {
     fun createShape(type: String): Shape
     fun createColor(type: String): Color
 }
 
 
+/*---------------------------------------------------------------------------------------------------------------------*/
 
 class TwoDFactoryImpl : AbstractFactory {
     override fun createShape(type: String): Shape {
@@ -43,6 +46,8 @@ class TwoDFactoryImpl : AbstractFactory {
     }
 }
 
+/*---------------------------------------------------------------------------------------------------------------------*/
+
 class ThreeDFactoryImpl : AbstractFactory {
     override fun createShape(type: String): Shape {
         return when (type) {
@@ -60,6 +65,7 @@ class ThreeDFactoryImpl : AbstractFactory {
     }
 }
 
+/*---------------------------------------------------------------------------------------------------------------------*/
 class ClientApp(private val factory: AbstractFactory) {
     fun createAndDrawComplexObject(shapeType: String, colorType: String) {
         val shape = factory.createShape(shapeType)
@@ -69,6 +75,7 @@ class ClientApp(private val factory: AbstractFactory) {
     }
 }
 
+/*---------------------------------------------------------------------------------------------------------------------*/
 fun main() {
 
     val twoDFactory = TwoDFactoryImpl()

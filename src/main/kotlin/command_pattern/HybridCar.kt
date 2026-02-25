@@ -1,9 +1,14 @@
-package command_pattern.hybrid_car
+package command_pattern
+
+/*---------------------------------------------------------------------------------------------------------------------*/
+
 
 private interface Command{
     fun executeCommand()
     fun undo()
 }
+
+/*---------------------------------------------------------------------------------------------------------------------*/
 
 
 private class NoCommand: Command{
@@ -11,6 +16,7 @@ private class NoCommand: Command{
     override fun undo(){}
 }
 
+/*---------------------------------------------------------------------------------------------------------------------*/
 
 
 private class Car(val carName : String){
@@ -54,6 +60,7 @@ private class Car(val carName : String){
 }
 
 
+/*---------------------------------------------------------------------------------------------------------------------*/
 
 
 private class MovementToForward(val car: Car) : Command{
@@ -67,6 +74,9 @@ private class MovementToForward(val car: Car) : Command{
     }
 }
 
+/*---------------------------------------------------------------------------------------------------------------------*/
+
+
 private class MovementToBackward(val car: Car) : Command{
 
     override fun executeCommand() {
@@ -77,6 +87,8 @@ private class MovementToBackward(val car: Car) : Command{
         car.moveForward()
     }
 }
+
+/*---------------------------------------------------------------------------------------------------------------------*/
 
 
 private class TurnOnLight(val car: Car) : Command{
@@ -89,6 +101,10 @@ private class TurnOnLight(val car: Car) : Command{
     }
 }
 
+
+/*---------------------------------------------------------------------------------------------------------------------*/
+
+
 private class TurnOffLight(val car: Car) : Command{
     override fun executeCommand() {
         car.turnOffLight()
@@ -98,6 +114,8 @@ private class TurnOffLight(val car: Car) : Command{
         car.turnOffLight()
     }
 }
+
+/*---------------------------------------------------------------------------------------------------------------------*/
 
 
 private class StartEngine(val car: Car) : Command{
@@ -111,6 +129,9 @@ private class StartEngine(val car: Car) : Command{
 }
 
 
+/*---------------------------------------------------------------------------------------------------------------------*/
+
+
 private class StopEngine(val car: Car) : Command{
     override fun executeCommand() {
         car.stopEngine()
@@ -122,11 +143,9 @@ private class StopEngine(val car: Car) : Command{
 }
 
 
-
-
+/*---------------------------------------------------------------------------------------------------------------------*/
 
 /** Invoker */
-
 private class CarOptionsInvoker{
 
     private val commands : Array<Command> = Array(10) {NoCommand()}
@@ -162,10 +181,9 @@ private class CarOptionsInvoker{
         return stringBuff.toString()
     }
 
-
-
 }
 
+/*---------------------------------------------------------------------------------------------------------------------*/
 
 
 

@@ -1,24 +1,24 @@
 package factory_pattern.shape_drawing.factory
 
-
+/*---------------------------------------------------------------------------------------------------------------------*/
 interface Shape { fun draw() }
 class Circle : Shape { override fun draw() { println("Drawing a Circle") } }
 class Square : Shape { override fun draw() { println("Drawing a Square") } }
 class Triangle : Shape { override fun draw() { println("Drawing a Triangle") } }
-
+/*---------------------------------------------------------------------------------------------------------------------*/
 
 private class Sphere : Shape {
     override fun draw() {
         println("Drawing a 3D Sphere")
     }
 }
-
+/*---------------------------------------------------------------------------------------------------------------------*/
 private class Cube : Shape {
     override fun draw() {
         println("Drawing a 3D Cube")
     }
 }
-
+/*---------------------------------------------------------------------------------------------------------------------*/
 
 abstract class Application {
 
@@ -32,7 +32,7 @@ abstract class Application {
     protected abstract fun createShape(type: String): Shape
 }
 
-
+/*---------------------------------------------------------------------------------------------------------------------*/
 private class SimpleDrawingApplication : Application() {
     override fun createShape(type: String): Shape {
         println("Simple app is creating a shape...")
@@ -43,7 +43,7 @@ private class SimpleDrawingApplication : Application() {
         }
     }
 }
-
+/*---------------------------------------------------------------------------------------------------------------------*/
 
 private class AdvancedDrawingApplication : Application() {
     override fun createShape(type: String): Shape {
@@ -55,6 +55,8 @@ private class AdvancedDrawingApplication : Application() {
         }
     }
 }
+
+/*---------------------------------------------------------------------------------------------------------------------*/
 
 fun main() {
     val simpleApp = SimpleDrawingApplication()

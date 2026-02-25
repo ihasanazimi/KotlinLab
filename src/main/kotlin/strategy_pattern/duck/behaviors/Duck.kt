@@ -7,33 +7,23 @@ abstract class Duck {
     var flyBehavior : FlyBehavior?= null
     var quackBehavior : QuackBehavior?= null
 
-
-
     fun swim() {
         println("All ducks float, even decoys!")
     }
 
     abstract fun display()
 
-
-
     fun performFly() {
-        flyBehavior?.fly() // محول کردن پرواز به شیء FlyBehavior
+        flyBehavior?.fly()
     }
-
-
 
     fun performQuack() {
-        quackBehavior?.quack() // محول کردن کواک به شیء QuackBehavior
+        quackBehavior?.quack()
     }
 
-
-    // متدهای setter برای تغییر دینامیکی رفتار در زمان اجرا
     fun replaceFlyBehavior(fb: FlyBehavior) {
         flyBehavior = fb
     }
-
-
 
     fun replaceQuackBehavior(qb: QuackBehavior) {
         quackBehavior = qb

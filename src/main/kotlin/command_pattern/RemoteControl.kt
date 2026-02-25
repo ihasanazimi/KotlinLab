@@ -1,5 +1,7 @@
-package command_pattern.remote_control
+package command_pattern
 
+
+/*---------------------------------------------------------------------------------------------------------------------*/
 
 /** Commands */
 private interface Command {
@@ -7,10 +9,16 @@ private interface Command {
     fun undo()
 }
 
+/*---------------------------------------------------------------------------------------------------------------------*/
+
+
 private class NoCommand : Command {
     override fun executeCommand() { /* do nothing */ }
     override fun undo() {}
 }
+
+/*---------------------------------------------------------------------------------------------------------------------*/
+
 
 
 /** Receivers */
@@ -34,19 +42,23 @@ private class GarageDoor(val location: String) {
     }
 }
 
+/*---------------------------------------------------------------------------------------------------------------------*/
 
 
 
 /** Concrete Command */
 private class LightOnCommand(private val light: Light) : Command {
     override fun executeCommand() {
-        light.on() // متد on را روی شیء Light فراخوانی می‌کند
+        light.on()
     }
 
     override fun undo() {
         light.off()
     }
 }
+
+/*---------------------------------------------------------------------------------------------------------------------*/
+
 
 private class LightOffCommand(private val light: Light) : Command {
     override fun executeCommand() {
@@ -58,6 +70,9 @@ private class LightOffCommand(private val light: Light) : Command {
     }
 }
 
+/*---------------------------------------------------------------------------------------------------------------------*/
+
+
 private class GarageDoorOpenCommand(private val garageDoor: GarageDoor) : Command {
     override fun executeCommand() {
         garageDoor.up()
@@ -67,6 +82,8 @@ private class GarageDoorOpenCommand(private val garageDoor: GarageDoor) : Comman
         garageDoor.down()
     }
 }
+
+/*---------------------------------------------------------------------------------------------------------------------*/
 
 
 private class MacroCommand(private val commands : Array<Command>) : Command {
@@ -82,9 +99,7 @@ private class MacroCommand(private val commands : Array<Command>) : Command {
     }
 }
 
-
-
-
+/*---------------------------------------------------------------------------------------------------------------------*/
 
 /** Invoker */
 private class RemoteControl {
@@ -119,6 +134,7 @@ private class RemoteControl {
     }
 }
 
+/*---------------------------------------------------------------------------------------------------------------------*/
 
 
 /** Client  */
@@ -143,6 +159,9 @@ fun main() {
     remote.offButtonWasPushed(0)
     remote.onButtonWasPushed(1)
 }
+
+/*---------------------------------------------------------------------------------------------------------------------*/
+
 
 
 

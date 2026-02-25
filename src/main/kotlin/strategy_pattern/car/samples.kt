@@ -1,7 +1,7 @@
 package strategy_pattern.car
 
 import strategy_pattern.car.behavior.Car
-import strategy_pattern.car.behavior.floating.brake.Brakeable
+import strategy_pattern.car.behavior.floating.brake.Breakable
 import strategy_pattern.car.behavior.floating.brake.Unbraked
 import strategy_pattern.car.behavior.floating.fuel.YesConsumerFuel
 import strategy_pattern.car.behavior.floating.fuel.NoConsumerFuel
@@ -11,7 +11,7 @@ import strategy_pattern.car.behavior.floating.light_tech.Laser
 import strategy_pattern.car.behavior.floating.light_tech.NoLight
 
 
-/******************************************************************************************************/
+/*---------------------------------------------------------------------------------------------------------------------*/
 
 class PlasticCar : Car() {
 
@@ -27,12 +27,12 @@ class PlasticCar : Car() {
 
 }
 
-/******************************************************************************************************/
+/*---------------------------------------------------------------------------------------------------------------------*/
 
 class BenzCar : Car() {
 
     init {
-        brakeBehavior = Brakeable()
+        brakeBehavior = Breakable()
         fuelBehavior = YesConsumerFuel("Hybrid / benzine")
         lightTechBehavior = LED()
     }
@@ -43,12 +43,12 @@ class BenzCar : Car() {
 
 }
 
-/******************************************************************************************************/
+/*---------------------------------------------------------------------------------------------------------------------*/
 
 class SamandCar : Car() {
 
     init {
-        brakeBehavior = Brakeable()
+        brakeBehavior = Breakable()
         fuelBehavior = YesConsumerFuel("benzine / gas")
         lightTechBehavior = Bowl()
     }
@@ -59,12 +59,12 @@ class SamandCar : Car() {
 
 }
 
-/******************************************************************************************************/
+/*---------------------------------------------------------------------------------------------------------------------*/
 
 class ToyotaSupraCar : Car() {
 
     init {
-        brakeBehavior = Brakeable()
+        brakeBehavior = Breakable()
         fuelBehavior = YesConsumerFuel("benzine u5")
         lightTechBehavior = Laser()
     }
@@ -75,7 +75,8 @@ class ToyotaSupraCar : Car() {
 
 }
 
-/******************************************************************************************************/
+/*---------------------------------------------------------------------------------------------------------------------*/
+
 
 
 

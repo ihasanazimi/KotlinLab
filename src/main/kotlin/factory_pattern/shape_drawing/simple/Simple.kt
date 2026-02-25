@@ -1,11 +1,11 @@
 package factory_pattern.shape_drawing.simple
 
-
+/*---------------------------------------------------------------------------------------------------------------------*/
 interface Shape { fun draw() }
 class Circle : Shape { override fun draw() { println("Drawing a Circle") } }
 class Square : Shape { override fun draw() { println("Drawing a Square") } }
 class Triangle : Shape { override fun draw() { println("Drawing a Triangle") } }
-
+/*---------------------------------------------------------------------------------------------------------------------*/
 
 class SimpleShapeFactory {
     fun createShape(type: String): Shape {
@@ -17,7 +17,7 @@ class SimpleShapeFactory {
         }
     }
 }
-
+/*---------------------------------------------------------------------------------------------------------------------*/
 
 class DrawingAppWithFactory(private val factory: SimpleShapeFactory) {
     fun drawShape(type: String) {
@@ -25,6 +25,9 @@ class DrawingAppWithFactory(private val factory: SimpleShapeFactory) {
         shape.draw()
     }
 }
+
+/*---------------------------------------------------------------------------------------------------------------------*/
+
 
 fun main() {
     val factory = SimpleShapeFactory()

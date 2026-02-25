@@ -2,24 +2,25 @@ package strategy_pattern.duck
 
 import strategy_pattern.duck.behaviors.Duck
 import strategy_pattern.duck.behaviors.fixed.FlyBehavior
-import strategy_pattern.duck.behaviors.floating.fly.FlyNoWay
-import strategy_pattern.duck.behaviors.floating.fly.FlyWithWings
-import strategy_pattern.duck.behaviors.floating.quack.Quack
+import strategy_pattern.duck.behaviors.floating.fly_behavior_impls.FlyNoWay
+import strategy_pattern.duck.behaviors.floating.fly_behavior_impls.FlyWithWings
+import strategy_pattern.duck.behaviors.floating.quack_behavior_impls.Quack
 
-/***********************************************************************/
+/*---------------------------------------------------------------------------------------------------------------------*/
+
 
 class FlyRocketPowered : FlyBehavior {
     override fun fly() {
-        println("I'm flying with a rocket!") // پرواز با موشک!
+        println("I'm flying with a rocket!")
     }
 }
 
-/***********************************************************************/
+/*---------------------------------------------------------------------------------------------------------------------*/
 
 class MallardDuck : Duck() {
     init {
-        quackBehavior = Quack() // اردک سرسبز کواک می‌کند
-        flyBehavior = FlyWithWings() // اردک سرسبز پرواز می‌کند
+        quackBehavior = Quack()
+        flyBehavior = FlyWithWings()
     }
 
     override fun display() {
@@ -27,7 +28,7 @@ class MallardDuck : Duck() {
     }
 }
 
-/***********************************************************************/
+/*---------------------------------------------------------------------------------------------------------------------*/
 
 class ModelDuck : Duck(){
 
@@ -41,7 +42,7 @@ class ModelDuck : Duck(){
     }
 }
 
-/***********************************************************************/
+/*---------------------------------------------------------------------------------------------------------------------*/
 
 
 fun main() {
@@ -52,7 +53,6 @@ fun main() {
     val model = ModelDuck()
     model.performFly()     // I can't fly
 
-    // تغییر رفتار پرواز در زمان اجرا
     model.replaceFlyBehavior(FlyRocketPowered())
     model.performFly()     // I'm flying with a rocket!
 }
