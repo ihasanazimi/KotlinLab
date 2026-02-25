@@ -11,7 +11,7 @@ private interface Command{
 /*---------------------------------------------------------------------------------------------------------------------*/
 
 
-private class NoCommand: Command{
+private class NoCommand: Command {
     override fun executeCommand(){}
     override fun undo(){}
 }
