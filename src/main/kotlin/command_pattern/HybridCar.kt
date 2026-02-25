@@ -1,17 +1,10 @@
 package command_pattern
 
-/*---------------------------------------------------------------------------------------------------------------------*/
-
-
-private interface Command{
-    fun executeCommand()
-    fun undo()
-}
 
 /*---------------------------------------------------------------------------------------------------------------------*/
 
 
-private class NoCommand: Command {
+class NoCommand: Command {
     override fun executeCommand(){}
     override fun undo(){}
 }
@@ -63,7 +56,7 @@ private class Car(val carName : String){
 /*---------------------------------------------------------------------------------------------------------------------*/
 
 
-private class MovementToForward(val car: Car) : Command{
+private class MovementToForward(val car: Car) : Command {
 
     override fun executeCommand() {
         car.moveForward()
@@ -77,7 +70,7 @@ private class MovementToForward(val car: Car) : Command{
 /*---------------------------------------------------------------------------------------------------------------------*/
 
 
-private class MovementToBackward(val car: Car) : Command{
+private class MovementToBackward(val car: Car) : Command {
 
     override fun executeCommand() {
         car.moveBackward()
@@ -91,7 +84,7 @@ private class MovementToBackward(val car: Car) : Command{
 /*---------------------------------------------------------------------------------------------------------------------*/
 
 
-private class TurnOnLight(val car: Car) : Command{
+private class TurnOnLight(val car: Car) : Command {
     override fun executeCommand() {
         car.turnOnLight()
     }

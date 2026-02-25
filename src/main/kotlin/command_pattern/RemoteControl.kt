@@ -1,18 +1,9 @@
 package command_pattern
 
-
-/*---------------------------------------------------------------------------------------------------------------------*/
-
-/** Commands */
-private interface Command {
-    fun executeCommand()
-    fun undo()
-}
-
 /*---------------------------------------------------------------------------------------------------------------------*/
 
 
-private class NoCommand : Command {
+class NoCommand : Command {
     override fun executeCommand() { /* do nothing */ }
     override fun undo() {}
 }
