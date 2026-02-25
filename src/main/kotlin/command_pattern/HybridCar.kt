@@ -1,13 +1,7 @@
 package command_pattern
 
-
-/*---------------------------------------------------------------------------------------------------------------------*/
-
-
-class NoCommand: Command {
-    override fun executeCommand(){}
-    override fun undo(){}
-}
+import command_pattern.command.Command
+import command_pattern.command.NoCommand
 
 /*---------------------------------------------------------------------------------------------------------------------*/
 
@@ -98,7 +92,7 @@ private class TurnOnLight(val car: Car) : Command {
 /*---------------------------------------------------------------------------------------------------------------------*/
 
 
-private class TurnOffLight(val car: Car) : Command{
+private class TurnOffLight(val car: Car) : Command {
     override fun executeCommand() {
         car.turnOffLight()
     }
@@ -111,7 +105,7 @@ private class TurnOffLight(val car: Car) : Command{
 /*---------------------------------------------------------------------------------------------------------------------*/
 
 
-private class StartEngine(val car: Car) : Command{
+private class StartEngine(val car: Car) : Command {
     override fun executeCommand() {
         car.startEngine()
     }
@@ -125,7 +119,7 @@ private class StartEngine(val car: Car) : Command{
 /*---------------------------------------------------------------------------------------------------------------------*/
 
 
-private class StopEngine(val car: Car) : Command{
+private class StopEngine(val car: Car) : Command {
     override fun executeCommand() {
         car.stopEngine()
     }
@@ -141,11 +135,11 @@ private class StopEngine(val car: Car) : Command{
 /** Invoker */
 private class CarOptionsInvoker{
 
-    private val commands : Array<Command> = Array(10) {NoCommand()}
-    private val reverseCommands : Array<Command> = Array(10){NoCommand()}
+    private val commands : Array<Command> = Array(10) { NoCommand() }
+    private val reverseCommands : Array<Command> = Array(10){ NoCommand() }
     private var undoCommand : Command = NoCommand()
 
-    fun setCommand(index : Int , command : Command , reverseCommand: Command = NoCommand()){
+    fun setCommand(index : Int, command : Command, reverseCommand: Command = NoCommand()){
         commands[index] = command
         reverseCommands[index] = reverseCommand
     }

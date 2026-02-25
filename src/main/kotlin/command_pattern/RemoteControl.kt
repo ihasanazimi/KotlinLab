@@ -1,16 +1,9 @@
 package command_pattern
 
-/*---------------------------------------------------------------------------------------------------------------------*/
-
-
-class NoCommand : Command {
-    override fun executeCommand() { /* do nothing */ }
-    override fun undo() {}
-}
+import command_pattern.command.Command
+import command_pattern.command.NoCommand
 
 /*---------------------------------------------------------------------------------------------------------------------*/
-
-
 
 /** Receivers */
 private class Light(val location: String) {
